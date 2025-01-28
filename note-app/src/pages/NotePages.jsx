@@ -3,6 +3,7 @@ import HeaderComponent from "../components/HeaderComponent"
 import { NoteContext } from "../contexts/note.context"
 import NoteCard from "../components/NoteCard";
 import "./NotePage.css";
+import CreateNote from "../components/CreateNote";
 
 const NotePages = () => {
   const { notes } = useContext(NoteContext);
@@ -23,7 +24,10 @@ const NotePages = () => {
 
       <section id="notes-page">
         <h2>Notes</h2>
-        <ul className="note-list">{noteCards}</ul>
+        <ul className="note-list">
+          <CreateNote />
+          {noteCards}
+        </ul>
       </section>
     </>
   )

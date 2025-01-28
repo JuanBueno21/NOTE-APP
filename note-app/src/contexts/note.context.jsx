@@ -5,27 +5,31 @@ const NoteContext = createContext();
 function NoteProviderWrapper(props) {
   const noteList = [
     {
-      id: 1,
+      id: "1",
       title: "ir a fiesta",
       marked: false,
     },
     {
-      id: 2,
+      id: "2",
       title: "ir a casa",
       marked: false,
     },
     {
-      id: 3,
+      id: "3",
       title: "ir a casa",
       marked: false,
     },
     {
-      id: 4,
+      id: "4",
       title: "recordar ver tv",
       marked: false,
     }];
 
   const [notes, setNotes] = useState(noteList);
+
+  const addNote = (newNote) => {
+    setNotes([newNote, ...notes,]);
+  }
 
   const updateNote = (updatedNote) => {
     const updatedNotes = notes.map((note) => {
@@ -37,7 +41,7 @@ function NoteProviderWrapper(props) {
 
   return (
     <NoteContext.Provider value={{
-      notes, setNotes, updateNote
+      notes, setNotes, updateNote, addNote,
     }}>
       {props.children}
     </NoteContext.Provider>
